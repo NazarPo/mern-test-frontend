@@ -1,0 +1,73 @@
+/*View Profile styles*/
+#profile {
+    width: 60%;
+}
+
+#profile i {
+    font-size: 25px;
+}
+
+#profile div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#profile h5 {
+    text-align: right;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+#profile h3 {
+    font-size: 25px;
+}
+
+.view-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 5%;
+    flex-wrap: wrap;
+}
+
+.view-profile img {
+    margin-bottom: 5%;
+}
+
+/*Edit Profile styles*/
+#edit-profile {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#edit-profile h4 {
+    margin-top: 3%;
+    text-align: center;
+}
+
+#edit-profile hr {
+    margin-bottom: 3%;
+}
+
+#edit-profile .radio-form div {
+    word-wrap: break-word;
+    display: flex;
+}
+
+#edit-profile .buttons {
+    margin-top: 5%;
+}
+
+#edit-profile .buttons input {
+    margin-right: 5%;
+}
+
+#edit-profile .radio-form input {
+    margin-right: 2%;
+}
+
+
+
+
