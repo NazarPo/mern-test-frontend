@@ -4,7 +4,7 @@ import authReducer from './authReducer';
 import meetupReducer from './meetupReducer';
 
 export default combineReducers({
-    meetup: meetupReducer,
+    meetups: meetupReducer,
     errors: errorsReducer,
     auth: authReducer
 })

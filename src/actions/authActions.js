@@ -6,10 +6,7 @@ import {GET_ERRORS, REMOVE_CURRENT_USER, SET_CURRENT_USER} from "../actions/type
 export const registerUser = (data, history) => dispatch =>{
     axios.post('http://localhost:4000/users/register', data)
         .then(res => history.push('/login'))
-        .catch(err => dispatch({
-            type: GET_ERRORS,
-            payload: err.response.data
-        }))
+        .catch(err => dispatch(getErrorsAction(err.response.data)))
 };
 
 export const loginUser = data => dispatch => {
@@ -19,23 +16,35 @@ export const loginUser = data => dispatch => {
             localStorage.setItem('jwtToken', token);
             setAuthToken(token);
             const decoded = jwt_decode(token);
-            dispatch({
-                type: SET_CURRENT_USER,
-                payload: decoded
-            });
+            dispatch(setCurrentUserAction(decoded));
         })
-        .catch(err => dispatch({
-            type: GET_ERRORS,
-            payload: err.response.data
-        }))
+        .catch(err => dispatch(getErrorsAction(err.response.data)))
 };
 
 export const logoutUser = () => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
-    dispatch({
-        type: REMOVE_CURRENT_USER,
-        payload: {}
-    })
+    dispatch(removeCurrentUserAction({}))
 };
+
+export function removeCurrentUserAction(user) {
+    return {
+        type: REMOVE_CURRENT_USER,
+        payload: user
+    }
+}
+
+export function setCurrentUserAction(user) {
+    return {
+        type: SET_CURRENT_USER,
+        payload: user
+    }
+}
+
+export  function getErrorsAction(errors) {
+    return {
+        type: GET_ERRORS,
+        payload: errors
+    }
+}
 

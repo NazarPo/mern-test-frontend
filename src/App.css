@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.no-meetups-info {
+  margin-top: 20%;
+  font-family: Consolas;
+}
+
+.create-profile {
+  margin-top: 5%;
+}

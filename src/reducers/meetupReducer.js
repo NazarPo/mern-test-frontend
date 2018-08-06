@@ -1,16 +1,11 @@
-import { ADD_MEETUPS} from "../actions/types";
+import { GET_MEETUPS } from "../actions/types";
 
-const initialState = {
-    meetups: []
-};
+const initialState = {};
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case ADD_MEETUPS:
-            return {
-                ...state,
-                meetups: state.meetups.concat(action.payload)
-            };
+        case GET_MEETUPS:
+            return action.payload;
         default:
             return state;
     }
