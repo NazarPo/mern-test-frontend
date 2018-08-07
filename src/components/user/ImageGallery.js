@@ -1,6 +1,16 @@
 import React from 'react';
 
-const MeetUpGallery = () => {
+const ImageGallery = (props) => {
+    const photoGroups = props.photos.map(photo => {
+        return (
+            <div className={`carousel-item ${photo.active ? 'active' : ''}`} key={photo.alt}>
+                <img className="d-block w-100"
+                     src={photo.src}
+                     alt={photo.alt}
+                />
+            </div>
+        )
+    });
     return (
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
             <ol className="carousel-indicators">
@@ -9,36 +19,9 @@ const MeetUpGallery = () => {
                 <li data-target="#carouselExampleIndicators" data-slide-to="2" />
             </ol>
             <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img className="d-block w-100"
-                         src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2018/04/DSC_0643.jpg"
-                         alt="First slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100"
-                         src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/09/DSC_0297.jpg"
-                         alt="Second slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100"
-                         src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/03/DSC_1540.jpg"
-                         alt="Third slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100"
-                         src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2018/04/DSC_0733.jpg"
-                         alt="Forth slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100"
-                         src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2018/03/DSC_0134.jpg"
-                         alt="Fives slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100"
-                         src="https://blog.interlink-ua.com/wp-content/uploads/sites/2/2017/12/DSC_1506.jpg"
-                         alt="Sixes slide" />
-                </div>
+                {
+                    photoGroups
+                }
             </div>
             <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true" />
@@ -52,4 +35,4 @@ const MeetUpGallery = () => {
     );
 }
 
-export default MeetUpGallery;
+export default ImageGallery;

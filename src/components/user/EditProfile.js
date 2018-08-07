@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextInputFieldGroup from "../atoms/TextInputFieldGroup";
-
+import SelectInputFieldGroup from "../atoms/SelectInputFieldGroup";
+import NumberInputFieldGroup from "../atoms/NumberInputFieldGroup";
+import RadioInputFieldGroup from "../atoms/RadioInputsFieldGroup";
 
 class CreateProfile extends Component {
     constructor(props) {
@@ -14,6 +15,12 @@ class CreateProfile extends Component {
     }
 
     render() {
+        const universityOptions = [
+            { label: '* Обери університет', value: 0 },
+            { label: 'Черкаський національний університет ім Б.Хмельницького', value: 'Черкаський національний університет ім Б.Хмельницького' },
+            { label: 'Черкаський державний технічний університет', value: 'Черкаський державний технічний університет' }
+        ];
+
         return (
             <div className="create-profile">
                 <div className="container">
@@ -25,53 +32,56 @@ class CreateProfile extends Component {
                                 <TextInputFieldGroup
                                     placeholder="* Profile Handle"
                                     name="handle"
-
                                     info="A unique handle for your profile URL. Your full name, company name, nickname"
+                                    onChange={this.onChange}
                                 />
                                 <TextInputFieldGroup
-                                    placeholder="Status"
-                                    name="status"
-
-                                    info="Give us an idea of where you are at in your career"
+                                    type="tel"
+                                    placeholder="Phone number (in the form xxx-xxx-xxxx)"
+                                    name="phone"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    onChange={this.onChange}
                                 />
                                 <TextInputFieldGroup
-                                    placeholder="Company"
-                                    name="company"
-
-                                    info="Could be your own company or one you work for"
+                                    type="date"
+                                    placeholder="Birth date"
+                                    name="birth"
+                                    onChange={this.onChange}
                                 />
                                 <TextInputFieldGroup
-                                    placeholder="Website"
-                                    name="website"
-
-                                    info="Could be your own website or a company one"
+                                    type="url"
+                                    placeholder="Social network"
+                                    name="socialNetwork"
+                                    onChange={this.onChange}
                                 />
+
+                                <SelectInputFieldGroup
+                                    name="university"
+                                    options={universityOptions}
+                                    onChange={this.onChange}
+                                />
+
                                 <TextInputFieldGroup
-                                    placeholder="Location"
-                                    name="location"
-
-                                    info="City or city & state suggested (eg. Boston, MA)"
+                                    placeholder="Факультет"
+                                    name="faculty"
+                                    onChange={this.onChange}
                                 />
-                                <TextInputFieldGroup
-                                    placeholder="* Skills"
-                                    name="skills"
 
-
-                                    info="Please use comma separated values (eg.
-                    HTML,CSS,JavaScript,PHP"
+                                <NumberInputFieldGroup
+                                    type="number"
+                                    name="course"
+                                    min="1"
+                                    max="5"
+                                    onChange={this.onChange}
                                 />
-                                <TextInputFieldGroup
-                                    placeholder="Github Username"
-                                    name="githubusername"
 
-                                    info="If you want your latest repos and a Github link, include your username"
+                                <RadioInputFieldGroup
+                                    name="hasLaptop"
                                 />
-                                <TextInputFieldGroup
-                                    placeholder="Short Bio"
-                                    name="bio"
 
-                                    info="Tell us a little about yourself"
-                                />
+                                <button type='submit'>
+                                    Submit
+                                </button>
                             </form>
                         </div>
                     </div>

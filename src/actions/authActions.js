@@ -24,13 +24,12 @@ export const loginUser = data => dispatch => {
 export const logoutUser = () => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
-    dispatch(removeCurrentUserAction({}))
+    dispatch(removeCurrentUserAction())
 };
 
-export function removeCurrentUserAction(user) {
+export function removeCurrentUserAction() {
     return {
-        type: REMOVE_CURRENT_USER,
-        payload: user
+        type: REMOVE_CURRENT_USER
     }
 }
 

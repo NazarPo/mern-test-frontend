@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {loginUser} from "../actions/authActions";
 import TextInputFieldGroup from "./atoms/TextInputFieldGroup";
 
-class Login extends Component {
+export class Login extends Component {
     constructor() {
         super();
         this.state = {
@@ -56,8 +56,9 @@ class Login extends Component {
                         <div className="col-md-8 m-auto">
                             <h1 className="display-4 text-center">Log In</h1>
 
-                            <form onSubmit={this.onSubmit}>
+                            <form onSubmit={this.onSubmit} id="loginForm">
                                 <TextInputFieldGroup
+                                    id="email"
                                     placeholder='Email address'
                                     name='email'
                                     type='email'
@@ -66,6 +67,7 @@ class Login extends Component {
                                     error={errors.email}
                                 />
                                 <TextInputFieldGroup
+                                    id="password"
                                     placeholder="Password"
                                     name="password"
                                     type="password"
